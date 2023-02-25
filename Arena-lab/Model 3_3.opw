@@ -1,7 +1,0 @@
-[RESOURCES]
-Resource 1
-[VARIABLES]
-Dispose 2.NumberOut
-Loan Processing.NumberIn
-Loan Processing.NumberOut
-Arrivals.NumberOut
