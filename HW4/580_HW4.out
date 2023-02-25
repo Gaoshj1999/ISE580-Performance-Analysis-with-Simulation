@@ -1,0 +1,50 @@
+
+                                      ARENA Simulation Results
+                                    GAOSHIJIE - License: STUDENT
+
+                                  Summary for Replication 1 of 1
+
+Project: ZIYI_580_HW_4                                               Run execution date : 2/21/2023
+Analyst: vitadmin                                                    Model revision date: 2/21/2023
+
+Replication ended at time      : 160.0 Hours 
+Base Time Units: Hours
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+Entity 1.VATime                             .17100     .00138     .07599     .37385       6148    
+Entity 1.NVATime                            .00000     .00000     .00000     .00000       6148    
+Entity 1.WaitTime                           1.5336     (Corr)     .00000     3.0521       6148    
+Entity 1.TranTime                           .00000     .00000     .00000     .00000       6148    
+Entity 1.OtherTime                          .00000     .00000     .00000     .00000       6148    
+Entity 1.TotalTime                          1.7046     (Corr)     .09284     3.3173       6148    
+Check In.Queue.WaitingTime                  1.5329     (Corr)     .00000     3.0521       6153    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                65.586     (Corr)     .00000     124.00     30.000    
+Agent.NumberBusy                            4.9717     (Insuf)    .00000     5.0000     5.0000    
+Agent.NumberScheduled                       5.0000     (Insuf)    5.0000     5.0000     5.0000    
+Agent.Utilization                           .99434     (Insuf)    .00000     1.0000     1.0000    
+Check In.Queue.NumberInQueue                59.005     (Corr)     .00000     117.00     25.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           6178.0    
+Entity 1.NumberOut                          6148.0    
+Agent.NumberSeized                          6153.0    
+Agent.ScheduledUtilization                  .99434    
+System.NumberOut                            6148.0    
+
+
+Simulation run time: 0.02 minutes.
+Simulation run complete.

@@ -1,0 +1,45 @@
+
+                                      ARENA Simulation Results
+                                    GAOSHIJIE - License: STUDENT
+
+                                  Summary for Replication 1 of 1
+
+Project: 580_HW3_3                                                   Run execution date : 2/21/2023
+Analyst: GAOSHIJIE                                                   Model revision date: 2/21/2023
+
+Replication ended at time      : 160.0 Hours 
+Base Time Units: Hours
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+Entity 1.VATime                             .11717      8.8592E-4 .00620     .23892       6008    
+Entity 1.NVATime                            .00000     .00000     .00000     .00000       6008    
+Entity 1.WaitTime                           .07030     .02999     .00000     .56687       6008    
+Entity 1.TranTime                           .00000     .00000     .00000     .00000       6008    
+Entity 1.OtherTime                          .04166      1.4063E-4 .03334     .05000       6008    
+Entity 1.TotalTime                          .22914     .02978     .05658     .72802       6008    
+Check_in_time.Queue.WaitingTime             .07039     .03000     .00000     .56687       6013    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                8.6167     1.0305     .00000     30.000     13.000    
+Check_in_time.Queue.NumberInQueue           2.6472     .93229     .00000     23.000     6.0000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           6021.0    
+Entity 1.NumberOut                          6008.0    
+System.NumberOut                            6008.0    
+
+
+Simulation run time: 0.02 minutes.
+Simulation run complete.

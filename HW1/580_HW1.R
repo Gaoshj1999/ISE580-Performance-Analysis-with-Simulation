@@ -1,0 +1,72 @@
+#1 X~Bino(n = 12, p = 0,25)
+#(a) P(X <= 2)
+Prob = pbinom(2, size = 12, prob = 0.25)
+Prob
+
+#(b) P(0.7 < X <= 3.1)
+Prob = pbinom(3.1, size = 12, prob = 0.25) - pbinom(0.7, size = 12, prob = 0.25)
+Prob
+
+#2 X~N(1.9, 0.36)
+#(a) P(X > 2)
+Prob = 1- pnorm(2, mean = 1.9, sd = 0.6)
+Prob
+
+#(b) P(0.7 < X < 3.1)
+Prob = pnorm(3.1, mean = 1.9, sd = 0.6) - pnorm(0.7, mean = 1.9, sd = 0.6)
+Prob
+
+#(c) the 95th percentile of X
+x = qnorm(0.95, mean = 1.9, sd = 0.6)
+x
+
+#3 X~Exp(0.2)
+#(a) P(X>5)
+Prob = 1 - pexp(5, 0.2)
+Prob
+
+#(b) P(1.4 <= X <= 4.2)
+Prob = pexp(4.2, 0.2) - pexp(1.4, 0.2)
+Prob
+
+#(c) P(1.4 < X < 4.2)
+Prob = pexp(4.2, 0.2) - pexp(1.4, 0.2)
+Prob
+
+#4
+unit_price = 10
+unit_cost = 7.5
+unit_refund = 2.5
+
+orders = seq(0, 250, 1)
+m = length(orders)
+
+set.seed(1)
+n = 100000
+avg_profits = rep(0, m)
+loss_prob = rep(0, m)
+for (j in 1:m)
+{
+    order_size = orders[j]
+    total_unit_cost = unit_cost * order_size  
+    demand = rnorm(n, 200, 40)
+    unit_sold = pmin(order_size, demand)
+    revenue = unit_price * unit_sold
+    
+    returns = rep(0 ,n)
+    for (i in 1:n)
+    {
+        if(demand[i] < order_size)
+            returns[i] = order_size - demand[i]  
+    } 
+    total_refund = unit_refund * returns
+    
+    profit = revenue - total_unit_cost + total_refund
+    avg_profits[j] = mean(profit)
+    losses = profit[profit<0]
+    loss_prob[j] = length(losses)/n
+}  
+#df = data.frame(Order_size = orders, Average_Profit = avg_profits)
+df = data.frame(Order_size = orders, Loss_prob = loss_prob)
+head(df, 20)
+

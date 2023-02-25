@@ -1,0 +1,7 @@
+[RESOURCES]
+agents
+[VARIABLES]
+Dispose 1.NumberOut
+Arrivals.NumberOut
+Check_in_time.NumberIn
+Check_in_time.NumberOut

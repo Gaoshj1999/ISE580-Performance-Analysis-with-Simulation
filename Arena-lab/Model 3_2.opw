@@ -1,0 +1,16 @@
+[RESOURCES]
+Doris
+Chuck
+Betty
+Alife
+[VARIABLES]
+Credit check.NumberOut
+Disbursement.NumberIn
+Dispose 1.NumberOut
+Credit check.NumberIn
+Loan Convenant.NumberIn
+Loan Convenant.NumberOut
+Price the loan.NumberIn
+Price the loan.NumberOut
+Arrivals.NumberOut
+Disbursement.NumberOut

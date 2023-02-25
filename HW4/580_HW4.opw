@@ -1,0 +1,8 @@
+[RESOURCES]
+Agent
+[VARIABLES]
+Check In.NumberOut
+Check In.NumberIn
+Dispose 1.NumberOut
+Arrival types 2.NumberOut
+Arrival types 1.NumberOut

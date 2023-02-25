@@ -1,0 +1,106 @@
+---
+title: "580_HW2"
+author: "Shijie Gao, USC ID:6037-6293-25"
+date: "2023-01-19"
+output: pdf_document
+---
+
+```{r}
+#1
+#By observation we can see that the possible order must between [20, 40]
+
+original_cost = 20000
+original_price = 25000
+
+reorder_cost = 22000
+disposed_price = 17000
+
+set.seed(1)
+n = 10000 #10000 trials
+Q = seq(20, 40, 1) #20 kinds of decisions
+mprofit = NULL
+sd = NULL
+
+for (q in Q)
+{
+    profit = rep(0, n)
+    demand = sample(c(20, 25, 30, 35, 40), c(0.3, 0.15, 0.15, 0.2, 0.2), size = n, replace = T)
+    for (i in 1:n)
+    {
+        if (demand[i] <= q)
+        {
+            profit[i] = -q*original_cost + demand[i]*original_price + (q - demand[i])*disposed_price
+        }
+        else
+        {
+            profit[i] = -q*original_cost - (demand[i] - q)*reorder_cost + demand[i]*original_price
+        }
+    }
+    sd = c(sd, sd(profit))
+    mprofit = c(mprofit, mean(profit))
+}  
+df = data.frame(Q = Q, mprofit = mprofit, sd = sd)
+df
+
+#(a)
+opt_sol = 19 + which.max(df$mprofit) #as we start from 20, so 19 + index is the true opt_sol
+opt_sol
+#24 cars should be ordered in December
+
+#(b)
+avg_profit = df[which.max(df$mprofit), "mprofit"]
+sd = df[which.max(df$mprofit), "sd"]
+lb = avg_profit - 2.34*sd/sqrt(n)
+ub = avg_profit + 2.34*sd/sqrt(n)
+c(lb, ub)
+
+
+#2
+set.seed(1)
+n = 1000000
+
+annual_fixed_cost = 30000
+cost = sample(c(6, 7.5, 9), c(0.25, 0.5, 0.25), size = n, replace = T)
+  
+sales = sample(c(60000, 100000), c(0.5, 0.5), size = n, replace =  T)
+Gross_profit = rep(0, n)
+for (i in 1:n)
+{
+    if (sales[i] == 60000)
+    { 
+        Gross_profit[i] = sales[i] * 10
+    }
+    else
+    {
+        Gross_profit[i] = sales[i] * 8 #sales == 100000
+    }
+}
+profit = Gross_profit - sales*cost - annual_fixed_cost
+
+#(a)
+expect_annual_profit = mean(profit)
+expect_annual_profit
+
+#(b)
+sd = sd(profit)
+lb = expect_annual_profit - 1.96*sd/sqrt(n)
+ub = expect_annual_profit + 1.96*sd/sqrt(n)
+c(lb, ub)
+
+#(c)
+fixed_sales = 0.5*60000 + 0.5*100000
+fixed_cost =  0.25*6 + 0.5*7.5 + 0.25*9
+fixed_price = 0.5*8 + 0.5*10
+
+fixed_expect_profit = fixed_sales*(fixed_price - fixed_cost) - annual_fixed_cost
+fixed_expect_profit
+
+#Result:expected profit from a simulation is not equal to the profit from
+#the scenario where each input assumes its expected value
+#The reason is that when we consider the expected value of unit price, we can
+#not simply avg ($8+$10)/2 to $9, because the sales for two situations are not the same
+#by considering the sales, the truly expected unit price should be:
+#fixed_price = (0.5*60000*$10+0.5*100000*$8)/(0.5*60000+0.5*100000) = $8.75
+#then we can calculate the truly expected profit: fixed_expect_profit = 70000, 
+#which is equal to the simulation
+```
